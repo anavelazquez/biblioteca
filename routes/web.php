@@ -26,8 +26,6 @@ Route::get('usuarios', function () {
 	return view('usuarios');
 })->name('usuarios');
 
-Route::get('catalogo', [LibroController::class, 'index'])->name('catalogo');
-
 Route::get('prestamos', function () {
 	return view('prestamos');
 })->name('prestamos');
@@ -35,5 +33,10 @@ Route::get('prestamos', function () {
 Route::get('contacto', function () {
 	return view('contacto');
 })->name('contacto');
+
+Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
+Route::get('libros/crear', [LibroController::class, 'create'])->name('libros.create');
+Route::post('libros', [LibroController::class, 'store'])->name('libros.store');
+
 
 

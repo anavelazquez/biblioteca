@@ -2,6 +2,9 @@
 @section('titulo', 'Catálogo')
 @section('contenido')
 	<h1>Catálogo</h1>
+
+	<p><a href="{{ route('libros.create') }}">Registrar Libro</a></p>
+
 	<br>
 	@if( count($libros) > 0)
 		<ul>

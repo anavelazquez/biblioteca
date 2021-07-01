@@ -19,7 +19,7 @@ class CreateLibrosTable extends Migration
             $table->string('autor'); 
             $table->string('editorial'); 
             $table->string('anio_edicion'); 
-            $table->integer('numero_paginas'); 
+            $table->integer('numero_paginas')->nullable(); 
             $table->timestamps();
         });
     }

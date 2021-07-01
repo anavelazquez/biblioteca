@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Libro;
 
-class LibroController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,6 @@ class LibroController extends Controller
     public function index()
     {
         //
-        $libros = Libro::all();
-        return view('catalogo')->with('libros', $libros);
     }
 
     /**
@@ -26,7 +23,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        return view('libros.create');
+        //
     }
 
     /**
@@ -35,19 +32,9 @@ class LibroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
-        $fields = request()->validate([
-            'titulo' => 'required',
-            'autor' => 'required',
-            'editorial' => 'required', 
-            'anio_edicion' => 'required|numeric'
-        ]);
-
-        Libro::create($fields);
-        
-        return 'Libro guardado con éxito';
     }
 
     /**
