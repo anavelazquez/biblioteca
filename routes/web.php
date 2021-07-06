@@ -37,6 +37,7 @@ Route::get('contacto', function () {
 Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
 Route::get('libros/crear', [LibroController::class, 'create'])->name('libros.create');
 Route::post('libros', [LibroController::class, 'store'])->name('libros.store');
+Route::get('libros/{id}', [LibroController::class, 'show'])->name('libros.show');
 
 
 

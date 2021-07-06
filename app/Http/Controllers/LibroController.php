@@ -35,17 +35,33 @@ class LibroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
+        /*
         $fields = request()->validate([
-            'titulo' => 'required',
+            'title' => 'required',
             'autor' => 'required',
             'editorial' => 'required', 
-            'anio_edicion' => 'required|numeric'
+            'year_edition' => 'required|numeric'
+        ],
+        [
+        'title.required' => 'El título del libro es indispensable',
+        'autor.required' => 'No olvides ingresar el nombre del autor',
         ]);
 
         Libro::create($fields);
+        */
+
+        $libro = new Libro;
+
+        $libro->titulo = $request->get('title');
+        $libro->autor = $request->get('autor');
+        $libro->editorial = $request->get('editorial');
+        $libro->anio_edicion = $request->get('year_edition');
+
+        $libro->save();
+
         
         return 'Libro guardado con éxito';
     }
@@ -58,7 +74,8 @@ class LibroController extends Controller
      */
     public function show($id)
     {
-        //
+        $libro = Libro::where('id_libro', $id)->firstOrFail();
+        return view('libros.show')->with('libro', $libro);
     }
 
     /**

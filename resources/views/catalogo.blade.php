@@ -9,7 +9,7 @@
 	@if( count($libros) > 0)
 		<ul>
 			@foreach ($libros as $libro)
-				<li>{{ $libro['titulo'] }} - {{ $libro['autor'] }}</li>
+				<li><a href="{{ route('libros.show', $libro->id_libro) }}">{{ $libro['titulo'] }} - {{ $libro['autor'] }}</a></li>
 			@endforeach	
 		</ul>
 	@else
